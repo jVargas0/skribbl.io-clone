@@ -425,7 +425,7 @@ eval("\n\nvar alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqr
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nvar socketio = __webpack_require__(/*! socket.io-client */ \"./node_modules/socket.io-client/build/index.js\");\r\nvar socket = socketio.io();\r\n//# sourceMappingURL=client.js.map\n\n//# sourceURL=webpack://ts-server/./src/client.js?");
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar socketio = __webpack_require__(/*! socket.io-client */ \"./node_modules/socket.io-client/build/index.js\");\nvar socket = socketio.io();\n//# sourceMappingURL=client.js.map\n\n//# sourceURL=webpack://ts-server/./src/client.js?");
 
 /***/ })
 
