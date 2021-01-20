@@ -1,0 +1,1 @@
+{"version":3,"file":"client.js","sourceRoot":"","sources":["client.ts"],"names":[],"mappings":";;AAAA,2CAA6C;AAE7C,IAAI,MAAM,GAAoB,QAAQ,CAAC,EAAE,EAAE,CAAC","sourcesContent":["import * as socketio from 'socket.io-client';\r\n\r\nvar socket: socketio.Socket = socketio.io();"]}
