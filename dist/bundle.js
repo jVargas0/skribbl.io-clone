@@ -407,6 +407,17 @@ eval("/**\n * Helpers.\n */\n\nvar s = 1000;\nvar m = s * 60;\nvar h = m * 60;\n
 
 /***/ }),
 
+/***/ "./src/client.ts":
+/*!***********************!*\
+  !*** ./src/client.ts ***!
+  \***********************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar socketio = __webpack_require__(/*! socket.io-client */ \"./node_modules/socket.io-client/build/index.js\");\nvar socket = socketio.io();\nvar guessModeDiv = document.getElementById(\"guessMode\");\nvar drawModeDiv = document.getElementById(\"drawMode\");\nvar chooseModeDiv = document.getElementById(\"chooseMode\");\nvar chooseButton1 = document.getElementById(\"chooseButton1\");\nvar chooseButton2 = document.getElementById(\"chooseButton2\");\nvar chooseButton3 = document.getElementById(\"chooseButton3\");\nvar subjectH2 = document.getElementById(\"subjectH2\");\nvar guessInput = document.getElementById(\"guessInput\");\nfunction switchMode(mode) {\n    if (!drawModeDiv || !chooseModeDiv || !guessModeDiv)\n        return;\n    switch (mode) {\n        case \"draw\":\n            drawModeDiv.hidden = false;\n            chooseModeDiv.hidden = true;\n            guessModeDiv.hidden = true;\n            return;\n        case \"guess\":\n            drawModeDiv.hidden = true;\n            chooseModeDiv.hidden = true;\n            guessModeDiv.hidden = false;\n            return;\n        case \"choose\":\n            drawModeDiv.hidden = true;\n            chooseModeDiv.hidden = false;\n            guessModeDiv.hidden = true;\n            return;\n        default: return;\n    }\n}\nswitchMode(\"draw\");\n\n\n//# sourceURL=webpack://ts-server/./src/client.ts?");
+
+/***/ }),
+
 /***/ "./node_modules/yeast/index.js":
 /*!*************************************!*\
   !*** ./node_modules/yeast/index.js ***!
@@ -415,17 +426,6 @@ eval("/**\n * Helpers.\n */\n\nvar s = 1000;\nvar m = s * 60;\nvar h = m * 60;\n
 
 "use strict";
 eval("\n\nvar alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'.split('')\n  , length = 64\n  , map = {}\n  , seed = 0\n  , i = 0\n  , prev;\n\n/**\n * Return a string representing the specified number.\n *\n * @param {Number} num The number to convert.\n * @returns {String} The string representation of the number.\n * @api public\n */\nfunction encode(num) {\n  var encoded = '';\n\n  do {\n    encoded = alphabet[num % length] + encoded;\n    num = Math.floor(num / length);\n  } while (num > 0);\n\n  return encoded;\n}\n\n/**\n * Return the integer value specified by the given string.\n *\n * @param {String} str The string to convert.\n * @returns {Number} The integer value represented by the string.\n * @api public\n */\nfunction decode(str) {\n  var decoded = 0;\n\n  for (i = 0; i < str.length; i++) {\n    decoded = decoded * length + map[str.charAt(i)];\n  }\n\n  return decoded;\n}\n\n/**\n * Yeast: A tiny growing id generator.\n *\n * @returns {String} A unique id.\n * @api public\n */\nfunction yeast() {\n  var now = encode(+new Date());\n\n  if (now !== prev) return seed = 0, prev = now;\n  return now +'.'+ encode(seed++);\n}\n\n//\n// Map each character to its index.\n//\nfor (; i < length; i++) map[alphabet[i]] = i;\n\n//\n// Expose the `yeast`, `encode` and `decode` functions.\n//\nyeast.encode = encode;\nyeast.decode = decode;\nmodule.exports = yeast;\n\n\n//# sourceURL=webpack://ts-server/./node_modules/yeast/index.js?");
-
-/***/ }),
-
-/***/ "./src/client.js":
-/*!***********************!*\
-  !*** ./src/client.js ***!
-  \***********************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar socketio = __webpack_require__(/*! socket.io-client */ \"./node_modules/socket.io-client/build/index.js\");\nvar socket = socketio.io();\n//# sourceMappingURL=client.js.map\n\n//# sourceURL=webpack://ts-server/./src/client.js?");
 
 /***/ })
 
@@ -457,7 +457,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar 
 /************************************************************************/
 /******/ 	// startup
 /******/ 	// Load entry module
-/******/ 	__webpack_require__("./src/client.js");
+/******/ 	__webpack_require__("./src/client.ts");
 /******/ 	// This entry module used 'exports' so it can't be inlined
 /******/ })()
 ;
