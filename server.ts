@@ -33,6 +33,19 @@ io.sockets.on('connection', function (socket: socketio.Socket) {
 	//log a new connection
 	console.log('a new user connected. ID: ',socket.id);
 
+
+
+	//accept draw
+	socket.on("line", (line)=>{
+		
+		io.sockets.emit("drawLine",line)
+	})
+
 });
+
+
+setInterval(()=>{
+	io.sockets.emit("clear")
+},5000)
 
 console.log('SERVER STARTED');

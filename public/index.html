@@ -12,17 +12,22 @@
         <h1>skribbl.io clone</h1>
         <div id = "guessMode">
             <input id = "guessInput" type = "text">
+            <div id = "p5Watch"></div>
         </div>
         <div id = "drawMode">
             <h2 id = "subjectH2"></h2>
             <input id = "color" type = "color">
-            <div id = "p5Canvas"></div>
+            <input type="range" min="1" max="100" value="50" id="brushSize">
+            <div id = "p5Draw"></div>
         </div>
         <div id = "chooseMode">
             <button id = "chooseButton1"></button>
             <button id = "chooseButton2"></button>
             <button id = "chooseButton3"></button>
         </div>
+        <button id = "choose">choose mode</button>
+        <button id = "guess">guess mode</button>
+        <button id = "draw">draw mode</button>
         <script src="/dist/bundle.js"></script>
     </body>
 </html>
